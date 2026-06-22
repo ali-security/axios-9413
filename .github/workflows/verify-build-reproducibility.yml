@@ -3,11 +3,11 @@ name: Verify build reproducibility
 on:
   pull_request:
     paths:
-      - 'lib/**'
-      - 'rollup.config.js'
-      - 'package.json'
-      - 'package-lock.json'
-      - '.github/workflows/verify-build-reproducibility.yml'
+      - lib/**
+      - rollup.config.js
+      - package.json
+      - package-lock.json
+      - .github/workflows/verify-build-reproducibility.yml
   push:
     branches: [v1.x]
 
@@ -17,7 +17,7 @@ permissions:
 jobs:
   verify-reproducible-build:
     name: Two-pass build and diff
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Non-blocking until divergence is eliminated. Surfaces regressions in
     # the build's determinism without gating merges. Remove this line to
     # promote to a hard gate once the build is byte-identical across runs.

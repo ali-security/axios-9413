@@ -9,7 +9,7 @@ on:
 
 jobs:
   spam-detection:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       issues: write
       pull-requests: write
@@ -22,8 +22,8 @@ jobs:
       - uses: github/ai-moderator@81159c370785e295c97461ade67d7c33576e9319 # v1.1.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          spam-label: 'spam'
-          ai-label: 'ai-generated'
+          spam-label: spam
+          ai-label: ai-generated
           minimize-detected-comments: true
           enable-spam-detection: true
           enable-link-spam-detection: true
